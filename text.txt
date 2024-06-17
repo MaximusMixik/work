@@ -8,3 +8,6 @@ origin  https://github.com/MaximusMixik/work.git (push)
 
 
 git branch -vv //связь с основной веткой (проверить)
+
+
+git remote   // (origin)
