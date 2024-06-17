@@ -1,13 +1,130 @@
+git config --global user.name "MaximusMixik"
+git config --global user.email "maximus.mixik@gmail.com"
+git config --list  // all info
+
+Основные команды при работе в терминале
+pwd - текущее положение в файловой системе (/c/work/studies/git)
+
+mkdir newProject - название при создании нового файла
+cd myProject - открыть папку
+echo "Some text" > file.txt  - Создаст файл с текстом
+rm file.txt - delete file
+rmdir newProject - удалить папку
+cd .. выход из папки
+cd ../.. выход из двух папок
+cd .git/objects  //вход в папку с обьектами
+cat - просмотр текстового файла,  читать файл
+
+
+
+
+GIT 
+git init //initialization  .git
+ls -la // покажет скрытые файлы  .git
+cd .git  // войти в папку 
+
+Внутри скрытой папки есть другие скритые папки  
+ls 
+(config  description  HEAD  hooks/  info/  objects/  refs/)
+cd objects
+ls -la
+
+Статусы отслеживания файлово
+untracked неотслеживаемый 
+staged подготовленый
+unmodified немодифицированный
+modified модифицированный
+
+
+Типы обьектов гит 
+blob файл
+tree папка 
+commit коммит
+annoted tagаннотированный тег
+
+
+head - указатель на текущую версию проекта
+main - ссылка на коммит
+ветка ссылается на последний коммит
+
+Команды гит
+git status  //текущее состояние репозитория гит
+git add имя_файла //подготовить 
+git add . //подготовить все файлы с изменениями 
+git commit //сохранить
+git commit -m "Сообщение" //сохранить с записью изменений
+git log // история изменений  q - close
+git checkout  хеш_коммита// перейти к определенной версии, откатится назад для просмотра
+git checkout название_ветки  // перейти к определенной веветке
+
+ git checkout master  // возвращение в основною (последнюю версию)
+
+
+
+git cat-file -t хеш - узнать тип файла
+git cat-file  -p хеш - содержимое файла 
+
+
+git cat-file -t 2417383  - читать хеш, (commit) если ето коммит 
+
+ git cat-file  -p  2417383 - содержимое комита
+tree f94c1e996c7c9c0255420a3bc85743ce93f7247c
+parent 54db4a2d019dfacc461321ac2f9ed6b82e741a12
+author MaximusMixik <maximus.mixik@gmail.com> 1718468594 +0300
+committer MaximusMixik <maximus.mixik@gmail.com> 1718468594 +0300
+new version
+
+git cat-file -t f94c1e996  - покажет тип (tree) - дерево
+git cat-file -p f94c1e996  - содержимое дерева
+040000 tree 1f57c468d08ad025cb8cd941f4229a93296a3aad    new
+100644 blob c0c62e532839ed15102f4cb4d62f42d5c0bb3251    text.txt
+
+2:20 Ветки
+git branch // список текущих  ветвей
+git branch branch_name //название метки
+git checkout  branch_name  // переход в ветку
+git checkout -b branch_name  //создание новой  метки и переход в неее
+
+git branch -m  new_branch_name//переиминовать название текущей ветки(желательно после чекаута)
+git branch -d branch_name //  Удалить ветку (текущую нельзя)
+
+2:37 Слияние веток(апдейт)
+merge commit - обьединяющий комит
+возможны конфликты из-за изменений в файлах основной ветки и другой ветки
+можно удалить ту ветку с которой было слияние так как все будет в основной ветке(main) 
+
+git merge название_ветки  которую вы хотите обьеденить(feature branch) с текущей веткой (receiving branch)
+git merge -m 'merging new functional' otherBrunch
+
+2:50 VScode
+
+3:17 Хостинги и репозитории
+GitHub BitBucket GitLab
+
+связь существующего локального репозитория с удаленным
+git remote add origin !url!  // подключение удаленного репозитория
+
+3:32!!
+git push -u origin branch_name Загрузка изменений из локальной ветки в удаленную с созданием связи между ними
+
+git clone url // copy repository to PC
+
+git pull //download загрузить и приметить из удаленной ветки в  локальную
+git push //upload  загрузка  из локальной   в  удаленную
+
+git branch -a // чтобы увидеть все ветки включая  и те что на удаленном репозитории(в сети)
+git checkout branch_name //  -//-
+
+
+
 git clone https://github.com/MaximusMixik/work.git
 
-
 code . // open vscode
-git remote -v
+git remote   // (origin)
+
+git remote  -v // связь с репозиторием 
 origin  https://github.com/MaximusMixik/work.git (fetch)
 origin  https://github.com/MaximusMixik/work.git (push)
 
-
 git branch -vv //связь с основной веткой (проверить)
 
-
-git remote   // (origin)
